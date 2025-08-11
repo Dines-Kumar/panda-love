@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panda Love 🐼❤️</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(120deg, #ffe6eb, #d1f2ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .panda {
+        font-size: 80px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .question {
+        font-size: 1.3rem;
+        margin: 15px 0;
+        color: #333;
+    }
+
+    .buttons button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .yes-btn {
+        background: #ff4d6d;
+        color: white;
+    }
+    .yes-btn:hover {
+        background: #e63950;
+    }
+
+    .no-btn {
+        background: white;
+        color: #ff4d6d;
+        border: 2px solid #ff4d6d;
+    }
+    .no-btn:hover {
+        background: #fce4ec;
+    }
+
+    .message {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 15px;
+        margin-top: 20px;
+        font-size: 1.05rem;
+        color: #444;
+        display: none;
+        animation: fadeIn 1s ease-in-out forwards;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .floating-heart {
+        position: absolute;
+        animation: floatUp 6s linear infinite;
+        color: rgba(255, 0, 76, 0.7);
+        font-size: 20px;
+        z-index: -1;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="panda">🐼</div>
+    <div class="question">Do you want to see my sweet message for you? 💌</div>
+    <div class="buttons">
+        <button class="yes-btn" onclick="showMessage()">Yes 💖</button>
+        <button class="no-btn" onclick="alert('Okay, maybe later ❤️')">No 😢</button>
+    </div>
+    <div class="message" id="loveMessage">
+        Chello ❤, neege period le irukkinge nu theriym but don’t strain too much da syg, 
+        mothe sonna maari than dont take ice except ice cream seri ya, eppolam pesanumnu thonutho apolam takkunu call pannunge seri ya, 
+        incase if im busy i’ll let u know ok va da ma, tc urself da syg🐼 i love you🤍🥰 muaaaaa😘
+    </div>
+</div>
+
+<!-- Music -->
+<audio id="bgMusic" src="Vaseegara.mp3"></audio>
+
+<script>
+    function showMessage() {
+        document.getElementById("loveMessage").style.display = "block";
+        document.getElementById("bgMusic").play();
+    }
+
+    // Floating hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+        heart.innerHTML = "&#10084;";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 15 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
